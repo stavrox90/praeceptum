@@ -1,2 +1,0 @@
-# praeceptum
-Created with CodeSandbox
