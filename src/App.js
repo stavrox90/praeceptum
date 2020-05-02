@@ -1,5 +1,5 @@
 import React from "react";
-import RecipeApp from "../components/RecipeApp";
+import RecipeApp from "./components/RecipeApp";
 
 const App = () => {
   return <RecipeApp />;
