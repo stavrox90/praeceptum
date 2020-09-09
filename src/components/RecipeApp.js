@@ -23,6 +23,7 @@ const RecipeApp = () => {
   };
 
   const updateSearch = e => {
+    e.preventDefault();
     setSearch(e.target.value);
   };
 
@@ -33,30 +34,45 @@ const RecipeApp = () => {
   };
 
   return (
-    <div>
+    <>
+    <div className="bg-warning py-2 sticky-top">
       <Container>
-        <h1>Praeceptum!</h1>
-      
-      <Form onSubmit={getSearch} >
-        <FormGroup >
-        <Input type="text" value={search} onChange={updateSearch} />
-        <Button type="submit">Search</Button>
-        </FormGroup>
-      </Form>
+        <h1 className="text-white">Praecemtum!</h1>
+        <Form onSubmit={getSearch} >
+          <FormGroup >
+            <Row>
+              <Col>
+                <Input type="text" value={search} onChange={updateSearch} />
+              </Col>
+              <Col>
+                <Button type="submit">Search</Button>
+              </Col>
+            </Row>
+          </FormGroup>
+        </Form>
       {/* <form onSubmit={getSearch}>
         <input type="text" value={search} onChange={updateSearch} />
         <button type="submit">Search</button>
       </form> */}
-      {recipes.map(recipe => (
-        <Recipe
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          img={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-        />
-      ))}
       </Container>
     </div>
+    <div className="py-3">
+      <Container>
+        <Row>
+        {recipes.map(recipe => (
+          <Col className="py-3" md="3">
+            <Recipe
+              title={recipe.recipe.label}
+              calories={recipe.recipe.calories}
+              img={recipe.recipe.image}
+              ingredients={recipe.recipe.ingredients}
+            />
+          </Col>
+        ))}
+        </Row>
+      </Container>
+    </div>
+    </>
   );
 };
 

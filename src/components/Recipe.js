@@ -8,19 +8,21 @@ const Recipe = ({ title, calories, img, ingredients }) => {
   return (
     <div>
       <Card>
-      <CardHeader>{title}</CardHeader>
-      <CardImg width="10%" src={img} alt="" />
-      <CardBody>
-        <CardText>
-        <CardSubtitle>Calories : {calories}</CardSubtitle>
-
-          <ol>
-            {ingredients.map(ingredient => (
-            <li>{ingredient.text}</li>
-            ))}
-          </ol>
-        </CardText>
-      </CardBody>
+        <CardHeader>{title}</CardHeader>
+        <CardImg width="10%" src={img} alt="" />
+        <CardBody>
+          <CardText>
+            <h5 className="text-center">{Math.floor(calories)} calories</h5>
+            <hr/>
+              <small>
+                <ol>
+                  {ingredients.map(ingredient => (
+                  <li>{ingredient.text}</li>
+                  ))}
+                </ol>
+              </small>
+            </CardText>
+        </CardBody>
       </Card>
     </div>
   );
