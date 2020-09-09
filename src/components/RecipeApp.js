@@ -30,7 +30,7 @@ const RecipeApp = () => {
   const getSearch = e => {
     e.preventDefault();
     setQuery(search);
-    setSearch("");
+    setSearch(e.target.value);
   };
 
   return (
@@ -42,7 +42,7 @@ const RecipeApp = () => {
           <FormGroup >
             <Row>
               <Col>
-                <Input type="text" value={search} onChange={updateSearch} />
+                <Input type="text" value={search} placeHolder="Look for recipes (e.g: fish, strawberry, etc..)" onChange={updateSearch} />
               </Col>
               <Col>
                 <Button type="submit">Search</Button>
